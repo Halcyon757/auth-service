@@ -1,18 +1,24 @@
 # Запуск
+```
 docker-compose up --build
+```
 
 ---
 # Swagger UI
 
 Полная документация по всем эндпойнтам доступна в Swagger:
+```
 http://localhost:8080/swagger-ui/index.html
-
+```
 ---
 ## Контакт: @pfishek (TG)
 ## Эндпойнты
 
 ### 1. Регистрация пользователя
-POST http://localhost:8080/auth/signup  
+POST
+```
+http://localhost:8080/auth/signup
+```  
 Регистрация нового пользователя, хеширование пароля, выдача токенов.
 
 Request:
@@ -40,7 +46,10 @@ Response 200 OK:
 
 ---
 ### 2. Авторизация (вход)
-POST http://localhost:8080/auth/signin  
+POST
+```
+http://localhost:8080/auth/signin
+```  
 Проверка логина/пароля, выдача новых токенов (ротация refresh‑токена).
 
 Request:
@@ -66,7 +75,10 @@ Response 200 OK:
 
 ---
 ### 3. Обновление access‑токена
-POST http://localhost:8080/auth/refreshtoken  
+POST
+```
+http://localhost:8080/auth/refreshtoken
+```  
 Проверка и ротация refresh‑токена, выдача нового access‑токена.
 
 Request:
@@ -91,7 +103,10 @@ Response 200 OK:
 
 ---
 ### 4. Выход (отзыв refresh‑токена)
-POST http://localhost:8080/auth/signout  
+POST
+```
+http://localhost:8080/auth/signout
+```  
 Удаление указанного refresh‑токена из БД.
 
 Request:
@@ -106,11 +121,17 @@ Response 200 OK
 
 ---
 ### 5. Продвижение в PREMIUM (только для роли ADMIN)
-POST http://localhost:8080/auth/promote/{login}  
+POST
+```
+http://localhost:8080/auth/promote/{login}
+```  
 Назначение роли PREMIUM_USER пользователю с данным логином.
 
 Пример:
-POST http://localhost:8080/auth/promote/ivan  
+POST
+```
+http://localhost:8080/auth/promote/ivan 
+``` 
 Authorization: Bearer <adminAccessToken>
 
 Response 200 OK  
